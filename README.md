@@ -1,11 +1,7 @@
-Reakt tutorial steps
+React tutorial steps
 ====================
 
-This is my repo working through http://facebook.github.io/react/docs/tutorial.html 
+This is my repo working through http://facebook.github.io/react/docs/tutorial.html in March 2021.
 
-Each commit includes all the changes for a chapter of the tutorial.
+I first read the tutorial back in 2015, and created this repository to keep track of the steps. The final version from this first walkthrough can still be found at the tag https://github.com/thoherr/react-tutorial/releases/tag/back_in_2015
 
-For an initial comments file, copy `comments.initial.json` to `comments.json`.
-
-The ruby based server `server.rb` in the root directory of the project
-was copied from the original tutorial repository https://github.com/reactjs/react-tutorial
