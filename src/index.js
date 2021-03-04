@@ -47,6 +47,7 @@ class Game
             }],
             stepNumber: 0,
             xIsNext: true,
+            showMovesAscending: true,
         }
     }
 
@@ -76,6 +77,12 @@ class Game
         });
     }
 
+    reverseHistory() {
+        this.setState({
+            showMovesAscending: !this.state.showMovesAscending
+        })
+    }
+
     render() {
         const history = this.state.history;
         const stepNumber = this.state.stepNumber;
@@ -87,11 +94,12 @@ class Game
                 'Go to game start';
             const selected = (move === stepNumber) ? 'selected-move' : '';
             return (
-                <li key={move} className={selected}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                <li key={move}>
+                    <button className={selected} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
         });
+        const ordered_moves = this.state.showMovesAscending ? moves : moves.reverse();
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
@@ -108,7 +116,10 @@ class Game
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <ol>{moves}</ol>
+                    <ul style={{listStyle: "none"}}>{ordered_moves}</ul>
+                    <div>
+                        <button onClick={() => this.reverseHistory()}>{this.state.showMovesAscending ? 'v^' : '^v'}</button>
+                    </div>
                 </div>
             </div>
         );
