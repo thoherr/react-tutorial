@@ -89,6 +89,7 @@ class Game
         const stepNumber = this.state.stepNumber;
         const current = history[stepNumber];
         const [winner, winningLine] = calculateWinner(current.squares);
+        const draw = !current.squares.includes(null);
         const moves = history.map((step, move) => {
             const desc = move ?
                 'Go to move #' + move + ' (' + step.col + ',' + step.row + ')' :
@@ -104,6 +105,8 @@ class Game
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
+        } else if (draw) {
+            status = 'DRAW !';
         } else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
