@@ -101,7 +101,7 @@ class Game
                 </li>
             );
         });
-        const ordered_moves = this.state.showMovesAscending ? moves : moves.reverse();
+        const orderedMoves = this.state.showMovesAscending ? moves : moves.reverse();
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
@@ -121,7 +121,7 @@ class Game
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <ul style={{listStyle: "none"}}>{ordered_moves}</ul>
+                    <ul style={{listStyle: "none"}}>{orderedMoves}</ul>
                     <div>
                         <button onClick={() => this.reverseHistory()}>{this.state.showMovesAscending ? 'v^' : '^v'}</button>
                     </div>
